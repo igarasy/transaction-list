@@ -6,9 +6,8 @@ export const Wrapper = styled.div`
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-
   align-items: center;
-  width: 100%;
+  width: 1390px;
   margin-bottom: 44px;
 `
 
@@ -18,7 +17,6 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
-  white-space: nowrap;
 `
 
 export const StyledButton = styled.button`
@@ -33,11 +31,7 @@ export const StyledButton = styled.button`
 `
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 1280px;
   display: flex;
   flex-direction: column;
-  margin-top: 79px;
   margin: 61px;
-  align-items: center;
 `

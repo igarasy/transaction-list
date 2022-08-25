@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from './styled'
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material'
 import TransactionsTable from '../TransactionsTable';
 
 const Transaction = () => {

@@ -1,9 +1,11 @@
 import React from 'react'
 import * as S from './styled'
-import { Button } from '@mui/material'
 import { useLocalForm } from './useLocalForm'
 import { Link } from 'react-router-dom';
+import { useGetTransactions } from '../../../../hooks/useGetTransactions';
+
 const InputPage = () => {
+  const service = useGetTransactions()
   const form = useLocalForm({
     onSubmit: () => {},
   })
@@ -51,6 +53,7 @@ const InputPage = () => {
             </S.InputWrapper>
           </S.InputContainer>
           <S.CreateButton type="submit" onClick={(e) => {e.preventDefault(); form.handleSubmit(); console.log(form.values)}}>criar transação</S.CreateButton>
+          <S.CancelButton onClick={(e) =>{ service.getTransactions(); e.preventDefault() }}>fetch</S.CancelButton>
           <Link to={`/`} style={{textDecoration: "none"}}>
           <S.CancelButton>cancelar</S.CancelButton>
           </Link>
