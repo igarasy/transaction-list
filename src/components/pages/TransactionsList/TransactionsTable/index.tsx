@@ -1,23 +1,36 @@
+import moment from 'moment'
 import React from 'react'
+import { useTransactionsService } from '../useTransactionsService'
 import * as S from './styled'
 
 const TransactionsTable = () => {
+  const { data } = useTransactionsService()
   return (
     <S.Card>
       <S.Wrapper>
         <S.Table>
-          <S.TableHeaderRow>
-            <S.TableHeader>Nome do estabelecimento</S.TableHeader>
-            <S.TableHeader>Data da compra</S.TableHeader>
-            <S.TableHeader>Valor</S.TableHeader>
-            <S.TableHeader>Meio de pagamento</S.TableHeader>
-          </S.TableHeaderRow>
-          <S.TableRow>
-            <S.TableCell>MERCADO LIVRE PAGAMENTOS</S.TableCell>
-            <S.TableCell>20/10/2015</S.TableCell>
-            <S.TableCell>R$ 10,26</S.TableCell>
-            <S.TableCell>Boleto</S.TableCell>
-          </S.TableRow>
+          <thead>
+            <S.TableHeaderRow>
+              <S.TableHeader>Nome do estabelecimento</S.TableHeader>
+              <S.TableHeader>Data da compra</S.TableHeader>
+              <S.TableHeader>Valor</S.TableHeader>
+              <S.TableHeader>Meio de pagamento</S.TableHeader>
+            </S.TableHeaderRow>
+          </thead>
+
+          <tbody>
+            {data &&
+              data.map(({ attributes }) => {
+                return [
+                  <S.TableRow>
+                    <S.TableCell>{attributes.establishment_name}</S.TableCell>
+                    <S.TableCell>{moment(attributes.publishedAt).format('DD/MM/YYYY')}</S.TableCell>
+                    <S.TableCell>R$ {attributes.amount}</S.TableCell>
+                    <S.TableCell>{attributes.payment_method}</S.TableCell>
+                  </S.TableRow>,
+                ]
+              })}
+          </tbody>
         </S.Table>
       </S.Wrapper>
     </S.Card>
