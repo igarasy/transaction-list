@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styled'
 import { Link } from 'react-router-dom';
-import TransactionsTable from '../TransactionsTable';
+import TransactionsTable from './TransactionsTable';
 
 const Transaction = () => {
   return (

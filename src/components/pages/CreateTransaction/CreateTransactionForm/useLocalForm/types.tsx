@@ -1,5 +1,5 @@
 export interface LocalFormValues {
   establishment_name: string,
-  amount: string,
+  amount: number,
   payment_method: string,
 }
