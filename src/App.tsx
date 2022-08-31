@@ -15,15 +15,13 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <BrowserRouter>
-      <>
-        <GlobalStyle />
-        <SnackbarProvider>
-          <Routes>
-            <Route path="/" element={<TransactionsList />} />
-            <Route path="/create" element={<CreateTransaction />} />
-          </Routes>
-        </SnackbarProvider>
-      </>
+      <GlobalStyle />
+      <SnackbarProvider>
+        <Routes>
+          <Route path="/" element={<TransactionsList />} />
+          <Route path="/create" element={<CreateTransaction />} />
+        </Routes>
+      </SnackbarProvider>
     </BrowserRouter>
   )
 }

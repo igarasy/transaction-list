@@ -16,7 +16,6 @@ export const Container = styled.div`
   align-items: left;
   justify-content: flex-start;
 `;
-export const InputPage = styled.div``;
 
 export const Header = styled.header`
   font-family: "Roboto", sans-serif;

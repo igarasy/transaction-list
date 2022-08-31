@@ -4,7 +4,7 @@ import { useLocalForm } from './useLocalForm'
 import { Link } from 'react-router-dom'
 import { useCreateTransactionService } from '../useCreateTransactionService'
 
-const InputPage = () => {
+const TransactionForm = () => {
   const service = useCreateTransactionService()
   const form = useLocalForm({
     onSubmit: () => service.postTransaction(form.values),
@@ -25,7 +25,7 @@ const InputPage = () => {
     >
       <S.InputContainer>
         <S.InputWrapper>
-          <S.Label >Nome do estabelecimento</S.Label>
+          <S.Label>Nome do estabelecimento</S.Label>
           <S.Input
             name="establishment_name"
             type="text"
@@ -35,7 +35,7 @@ const InputPage = () => {
           />
           {form.touched.establishment_name &&
             !!form.errors.establishment_name && (
-              <S.Error>{form.errors.establishment_name}</S.Error>
+              <S.Error aria-label='error'>{form.errors.establishment_name}</S.Error>
             )}
         </S.InputWrapper>
         <S.InputWrapper>
@@ -43,17 +43,19 @@ const InputPage = () => {
           <S.Input
             type="number"
             name="amount"
+            aria-label='amount'
             value={form.values.amount}
             onChange={form.handleChange}
           />
           {form.touched.amount && !!form.errors.amount && (
-            <S.Error>{form.errors.amount}</S.Error>
+            <S.Error aria-label='amountError'>{form.errors.amount}</S.Error>
           )}
         </S.InputWrapper>
         <S.InputWrapper>
           <S.Label>Meio de pagamento </S.Label>
           <S.Select
             name="payment_method"
+            aria-label='payment_method'
             value={form.values.payment_method}
             onChange={form.handleChange}
           >
@@ -62,11 +64,11 @@ const InputPage = () => {
             <option value="Boleto">Boleto</option>
           </S.Select>
           {form.touched.payment_method && !!form.errors.payment_method && (
-            <S.Error>{form.errors.payment_method}</S.Error>
+            <S.Error aria-label='error'>{form.errors.payment_method}</S.Error>
           )}
         </S.InputWrapper>
       </S.InputContainer>
-      <S.CreateButton type="submit" onClick={handleClick}>
+      <S.CreateButton type="submit" onClick={handleClick} >
         criar transação
       </S.CreateButton>
       <Link to={`/`} style={{ textDecoration: 'none' }}>
@@ -76,4 +78,4 @@ const InputPage = () => {
   )
 }
 
-export default InputPage
+export default TransactionForm
