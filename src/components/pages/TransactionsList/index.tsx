@@ -3,7 +3,7 @@ import * as S from './styled'
 import { Link } from 'react-router-dom';
 import TransactionsTable from './TransactionsTable';
 
-const Transaction = () => {
+const TransactionsList = () => {
   return (
     <S.Wrapper>
     <S.Container>
@@ -19,4 +19,4 @@ const Transaction = () => {
   )
 }
 
-export default Transaction
+export default TransactionsList

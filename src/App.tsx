@@ -1,5 +1,5 @@
 import React from 'react'
-import Transaction from './components/pages/TransactionsList/index'
+import TransactionsList from './components/pages/TransactionsList/index'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CreateTransaction from './components/pages/CreateTransaction/index'
 import { SnackbarProvider } from 'notistack'
@@ -14,17 +14,17 @@ const GlobalStyle = createGlobalStyle`
 `
 function App() {
   return (
-    <>
-    <GlobalStyle/>
-      <SnackbarProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <>
+        <GlobalStyle />
+        <SnackbarProvider>
           <Routes>
-            <Route path="/" element={<Transaction />} />
+            <Route path="/" element={<TransactionsList />} />
             <Route path="/create" element={<CreateTransaction />} />
           </Routes>
-        </BrowserRouter>
-      </SnackbarProvider>
-    </>
+        </SnackbarProvider>
+      </>
+    </BrowserRouter>
   )
 }
 

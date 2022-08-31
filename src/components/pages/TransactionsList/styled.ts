@@ -6,16 +6,12 @@ export const Wrapper = styled.div`
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 1390px;
   margin-bottom: 44px;
 `
 
 export const Title = styled.h1`
   font-family: 'Roboto', sans-serif;
-
-  font-style: normal;
-  font-weight: bold;
   font-size: 48px;
 `
 

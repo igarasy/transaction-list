@@ -7,6 +7,7 @@ const TransactionsTable = () => {
   const { data } = useTransactionsService()
   return (
     <S.Card>
+      
       <S.Wrapper>
         <S.Table>
           <thead>
@@ -17,12 +18,11 @@ const TransactionsTable = () => {
               <S.TableHeader>Meio de pagamento</S.TableHeader>
             </S.TableHeaderRow>
           </thead>
-
           <tbody>
             {data &&
-              data.map(({ attributes }) => {
+              data.map(({ attributes, id}) => {
                 return [
-                  <S.TableRow>
+                  <S.TableRow key={id}>
                     <S.TableCell>{attributes.establishment_name}</S.TableCell>
                     <S.TableCell>{moment(attributes.publishedAt).format('DD/MM/YYYY')}</S.TableCell>
                     <S.TableCell>R$ {attributes.amount}</S.TableCell>

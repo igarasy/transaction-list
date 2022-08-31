@@ -25,10 +25,11 @@ const InputPage = () => {
     >
       <S.InputContainer>
         <S.InputWrapper>
-          <S.Label>Nome do estabelecimento</S.Label>
+          <S.Label >Nome do estabelecimento</S.Label>
           <S.Input
             name="establishment_name"
             type="text"
+            aria-label='establishment_name'
             value={form.values.establishment_name}
             onChange={form.handleChange}
           />
